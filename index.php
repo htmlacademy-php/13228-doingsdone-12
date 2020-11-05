@@ -6,25 +6,25 @@ $projects = ['Входящие', 'Учеба', 'Работа', 'Домашние
 $tasks = [
     [
         'title' => 'Собеседование в IT компании',
-        'date_of_completion' => '01.12.2019',
+        'date_of_completion' => '06.11.2020',
         'category' => 'Работа',
         'completed' => false,
     ],
     [
         'title' => 'Выполнить тестовое задание',
-        'date_of_completion' => '25.12.2019',
+        'date_of_completion' => '25.12.2021',
         'category' => 'Работа',
         'completed' => false,
     ],
     [
         'title' => 'Сделать задание первого раздела',
-        'date_of_completion' => '21.12.2019',
+        'date_of_completion' => '07.11.2020',
         'category' => 'Учеба',
         'completed' => true,
     ],
     [
         'title' => 'Встреча с другом',
-        'date_of_completion' => '22.12.2019',
+        'date_of_completion' => '22.12.2020',
         'category' => 'Входящие',
         'completed' => false,
     ],
@@ -60,6 +60,15 @@ function counting_tasks(array $task_list, $project)
     }
 
     return $number_of_tasks;
+}
+
+function checking_time($time)
+{
+    $final_date = strtotime($time);
+    $current_time = time();
+    $count_hours = floor(($final_date - $current_time) / 3600);
+
+    return $count_hours <= 24;
 }
 
 $page_content = include_template('main.php', [

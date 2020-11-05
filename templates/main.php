@@ -42,7 +42,7 @@
     <table class="tasks">
         <?php foreach ($tasks as $key => $val): ?>
             <?php if ($val['completed'] && $show_complete_tasks == 0) { continue; } ?>
-            <tr class="tasks__item task <?php echo ($val['completed'] ? ' task--completed' : ''); ?>">
+            <tr class="tasks__item task <?php echo ($val['completed'] ? ' task--completed' : ''); ?> <?php echo (checking_time($val['date_of_completion']) ? ' task--important' : ''); ?>">
                 <td class="task__select">
                     <label class="checkbox task__checkbox">
                         <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1">
